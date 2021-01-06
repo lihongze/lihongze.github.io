@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-06T03:53:25.194Z</updated>
+  <updated>2021-01-06T08:43:33.385Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/"/>
     <id>http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</id>
     <published>2021-01-06T02:17:58.000Z</published>
-    <updated>2021-01-06T03:53:25.194Z</updated>
+    <updated>2021-01-06T08:43:33.385Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;1、环境要求&quot;&gt;&lt;a href=&quot;#1、环境要求&quot; class=&quot;headerlink&quot; title=&quot;1、环境要求&quot;&gt;&lt;/a&gt;1、环境要求&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;github账号（[教程点这里]）&lt;/li&gt;
-&lt;li&gt;本机需要装好node.js + git（[</summary>
+    <summary type="html">&lt;h1 id=&quot;环境要求&quot;&gt;&lt;a href=&quot;#环境要求&quot; class=&quot;headerlink&quot; title=&quot;环境要求&quot;&gt;&lt;/a&gt;环境要求&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;新建github账号+项目（[教程点这里]）&lt;/li&gt;
+&lt;li&gt;本机需要装好node.js + git（[教程点</summary>
       
     
     
@@ -39,24 +39,6 @@
     
     
     <category term="github" scheme="http://example.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/01/05/hello-world/"/>
-    <id>http://example.com/2021/01/05/hello-world/</id>
-    <published>2021-01-05T07:21:45.226Z</published>
-    <updated>2021-01-05T07:21:45.226Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
     
   </entry>
   
