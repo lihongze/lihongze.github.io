@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-06T08:43:33.385Z</updated>
+  <updated>2021-01-06T10:30:55.545Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何使用hexo+github搭建自己的博客系统</title>
-    <link href="http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</id>
-    <published>2021-01-06T02:17:58.000Z</published>
-    <updated>2021-01-06T08:43:33.385Z</updated>
+    <title>hexo搭建-环境准备</title>
+    <link href="http://example.com/2021/01/06/hexo%E6%90%AD%E5%BB%BA-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/"/>
+    <id>http://example.com/2021/01/06/hexo%E6%90%AD%E5%BB%BA-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</id>
+    <published>2021-01-06T09:23:46.000Z</published>
+    <updated>2021-01-06T10:30:55.545Z</updated>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;环境要求&quot;&gt;&lt;a href=&quot;#环境要求&quot; class=&quot;headerlink&quot; title=&quot;环境要求&quot;&gt;&lt;/a&gt;环境要求&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;新建github账号+项目（[教程点这里]）&lt;/li&gt;
-&lt;li&gt;本机需要装好node.js + git（[教程点</summary>
+    <summary type="html">&lt;h1 id=&quot;本机安装node-js-git&quot;&gt;&lt;a href=&quot;#本机安装node-js-git&quot; class=&quot;headerlink&quot; title=&quot;本机安装node.js+git&quot;&gt;&lt;/a&gt;本机安装node.js+git&lt;/h1&gt;&lt;h2 id=&quot;node-js安装&quot;&gt;&lt;a</summary>
       
     
     
@@ -38,7 +36,32 @@
     <category term="hexo" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/hexo/"/>
     
     
-    <category term="github" scheme="http://example.com/tags/github/"/>
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用hexo+github搭建自己的博客系统</title>
+    <link href="http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://example.com/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</id>
+    <published>2021-01-06T02:17:58.000Z</published>
+    <updated>2021-01-06T10:31:54.745Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;环境要求&quot;&gt;&lt;a href=&quot;#环境要求&quot; class=&quot;headerlink&quot; title=&quot;环境要求&quot;&gt;&lt;/a&gt;环境要求&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;新建github账号+项目（ &lt;a href=&quot;/2021/01/06/hexo%E6%90%AD%E5%BB%</summary>
+      
+    
+    
+    
+    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="hexo" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
     
   </entry>
   
