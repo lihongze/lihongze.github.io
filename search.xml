@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo搭建-环境准备</title>
+    <url>/hexo%E6%90%AD%E5%BB%BA-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87.html</url>
+    <content><![CDATA[<h1 id="本机安装node-js-git"><a href="#本机安装node-js-git" class="headerlink" title="本机安装node.js+git"></a>本机安装node.js+git</h1><h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><blockquote>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</p>
+</blockquote>
+<p>下载地址：<a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a><br>下载完成后，双击安装，一路next到结束，安装完成后 按下<code>win + R</code> 键，输入cmd 回车，打开windows命令台，输入<br><code>node -v</code><br><code>npm -v</code><br>出现以下内容说明安装成功<br><a href="https://imgchr.com/i/s3dzVI"><img src="https://s3.ax1x.com/2021/01/11/s3dzVI.png" alt="s3dzVI.png"></a>  </p>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><blockquote>
+<p>维基词条:git 是一个分布式版本控制软件，最初由林纳斯·托瓦兹创作，于2005年以GPL发布。最初目的是为更好地管理Linux内核开发而设计。应注意的是，这与GNU Interactive Tools（一个类似Norton Commander界面的文件管理器）不同。<br>git最初的开发动力来自于BitKeeper和Monotone。git最初只是作为一个可以被其他前端（比如Cogito或Stgit）包装的后端而开发的，但后来git内核已经成熟到可以独立地用作版本控制。很多著名的软件都使用git进行版本控制，其中包括Linux内核、X.Org服务器和OLPC内核等项目的开发流程。</p>
+</blockquote>
+<p>下载地址：<a href="https://www.git-scm.com/download/win">https://www.git-scm.com/download/win</a><br>安装完成后，打开cmd命令行输入<br><code>git --version</code><br>出现以下内容说明安装成功<br><a href="https://imgchr.com/i/s3wSat"><img src="https://s3.ax1x.com/2021/01/11/s3wSat.png" alt="s3wSat.png"></a></p>
+<h2 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h2><blockquote>
+<p>GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。它以各种不同的编程语言托管您的源代码项目，并跟踪每次迭代所做的各种更改。</p>
+</blockquote>
+<p>接下来我们需要创建一个github账号，访问<a href="https://github.com/">https://github.com/</a>github官网注册账号登陆后，新建一个项目<br><a href="https://imgchr.com/i/s3wPG8"><img src="https://s3.ax1x.com/2021/01/11/s3wPG8.png" alt="s3wPG8.png"></a><br>然后完善项目信息，如下：<br><a href="https://imgchr.com/i/s3wCPf"><img src="https://s3.ax1x.com/2021/01/11/s3wCPf.png" alt="s3wCPf.png"></a><br>这里Repository name 爆红是我已创建过相同名称的项目，不用管，然后选择项目的setting配置，如下图：<br><a href="https://imgchr.com/i/s3wiRS"><img src="https://s3.ax1x.com/2021/01/11/s3wiRS.png" alt="s3wiRS.png"></a><br>拉到最下面，找到<code>GitHub Pages</code>，点击<code>Choose a theme</code>选择一个主题。过一会之后再回到GitHub Pages，看到如下内容说明设置成功：<br><a href="https://imgchr.com/i/s3wFxg"><img src="https://s3.ax1x.com/2021/01/11/s3wFxg.png" alt="s3wFxg.png"></a><br>此时我们访问图中链接，已经可以正常访问啦，然后记录下我们项目的git ssh地址，后面和本地git打通要用到，git ssh地址如下图：<br><a href="https://imgchr.com/i/s3wErj"><img src="https://s3.ax1x.com/2021/01/11/s3wErj.png" alt="s3wErj.png"></a>  </p>
+<h2 id="github配置本地密钥"><a href="#github配置本地密钥" class="headerlink" title="github配置本地密钥"></a>github配置本地密钥</h2><p>打开我的电脑，右键空白处，选择 <code>Git Bash Here</code>,打开git命令窗口，输入以下命令配置你的github信息：   </p>
+<pre><code>git config --global user.name &quot;xxxxx&quot;
+git config --global user.email &quot;xxxxxx@qq.com&quot;</code></pre>
+<p>用户名邮箱为你注册github的用户名和邮箱，接下来创建本地ssh密钥，输入以下命令：<br><code>ssh-keygen -t rsa -C &quot;xxxxxx@qq.com&quot;</code><br>然后访问本机C:\Users\你的本机用户名  找到.ssh文件夹，会生成如下密钥文件：<br><a href="https://imgchr.com/i/s3wAMQ"><img src="https://s3.ax1x.com/2021/01/11/s3wAMQ.png" alt="s3wAMQ.png"></a><br>复制<code>id_rsa.pub</code>文件中的内容，打开github，<br><a href="https://imgchr.com/i/s3wVqs"><img src="https://s3.ax1x.com/2021/01/11/s3wVqs.png" alt="s3wVqs.png"></a><br><a href="https://imgchr.com/i/s3weZn"><img src="https://s3.ax1x.com/2021/01/11/s3weZn.png" alt="s3weZn.png"></a><br><a href="https://imgchr.com/i/s3wmaq"><img src="https://s3.ax1x.com/2021/01/11/s3wmaq.png" alt="s3wmaq.png"></a><br>密钥设置成功后，在git命令台输入<br><code>ssh -T git@github.com</code><br>出现你的名字，说明设置成功，至此，hexo+github搭建博客的前置环境我们就全部完成啦，后续搭建教程 <a href="/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">看这里</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何使用hexo+github搭建自己的博客系统</title>
     <url>/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F.html</url>
     <content><![CDATA[<h1 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h1><ol>
@@ -22,34 +50,6 @@
 <pre><code>//文章目录默认展开
 .post-toc .nav .nav-child &#123; display: block; &#125;</code></pre>
 <h2 id="问题：文章引用本地图片无法展示"><a href="#问题：文章引用本地图片无法展示" class="headerlink" title=" 问题：文章引用本地图片无法展示"></a> 问题：文章引用本地图片无法展示</h2><p> 解决方案： 在hexo根目录下打开git控制台，输入<br> <code>npm install https://github.com/7ym0n/hexo-asset-image --save</code><br> 装这个插件，后续再通过<code>hexo new post &quot;文章名&quot;</code> 创建文章会发现之前存放文章的目录下会多一个与文章名一样的文件夹，文章相关的图片等静态资源会默认存放在这个文件夹内，然后我们在文章中就可以通过<br> <code>![img_9.png](img_9.png)</code><br> 这种格式来引用本地图片啦，那针对你装这个插件之前的文章，你可以手动在文章目录（hexo根目录/source/_posts/）下创建与文章名一样的文件夹，然后将文章相关图片剪切进去就可以啦<br> ps：推荐使用图床引用图片外链，否则本地图片加载会很慢，想试试效果可以先用<a href="https://imgchr.com/">路过图床</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建-环境准备</title>
-    <url>/hexo%E6%90%AD%E5%BB%BA-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87.html</url>
-    <content><![CDATA[<h1 id="本机安装node-js-git"><a href="#本机安装node-js-git" class="headerlink" title="本机安装node.js+git"></a>本机安装node.js+git</h1><h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><blockquote>
-<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</p>
-</blockquote>
-<p>下载地址：<a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a><br>下载完成后，双击安装，一路next到结束，安装完成后 按下<code>win + R</code> 键，输入cmd 回车，打开windows命令台，输入<br><code>node -v</code><br><code>npm -v</code><br>出现以下内容说明安装成功<br><a href="https://imgchr.com/i/s3dzVI"><img src="https://s3.ax1x.com/2021/01/11/s3dzVI.png" alt="s3dzVI.png"></a>  </p>
-<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><blockquote>
-<p>维基词条:git 是一个分布式版本控制软件，最初由林纳斯·托瓦兹创作，于2005年以GPL发布。最初目的是为更好地管理Linux内核开发而设计。应注意的是，这与GNU Interactive Tools（一个类似Norton Commander界面的文件管理器）不同。<br>git最初的开发动力来自于BitKeeper和Monotone。git最初只是作为一个可以被其他前端（比如Cogito或Stgit）包装的后端而开发的，但后来git内核已经成熟到可以独立地用作版本控制。很多著名的软件都使用git进行版本控制，其中包括Linux内核、X.Org服务器和OLPC内核等项目的开发流程。</p>
-</blockquote>
-<p>下载地址：<a href="https://www.git-scm.com/download/win">https://www.git-scm.com/download/win</a><br>安装完成后，打开cmd命令行输入<br><code>git --version</code><br>出现以下内容说明安装成功<br><a href="https://imgchr.com/i/s3wSat"><img src="https://s3.ax1x.com/2021/01/11/s3wSat.png" alt="s3wSat.png"></a></p>
-<h2 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h2><blockquote>
-<p>GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。它以各种不同的编程语言托管您的源代码项目，并跟踪每次迭代所做的各种更改。</p>
-</blockquote>
-<p>接下来我们需要创建一个github账号，访问<a href="https://github.com/">https://github.com/</a>github官网注册账号登陆后，新建一个项目<br><a href="https://imgchr.com/i/s3wPG8"><img src="https://s3.ax1x.com/2021/01/11/s3wPG8.png" alt="s3wPG8.png"></a><br>然后完善项目信息，如下：<br><a href="https://imgchr.com/i/s3wCPf"><img src="https://s3.ax1x.com/2021/01/11/s3wCPf.png" alt="s3wCPf.png"></a><br>这里Repository name 爆红是我已创建过相同名称的项目，不用管，然后选择项目的setting配置，如下图：<br><a href="https://imgchr.com/i/s3wiRS"><img src="https://s3.ax1x.com/2021/01/11/s3wiRS.png" alt="s3wiRS.png"></a><br>拉到最下面，找到<code>GitHub Pages</code>，点击<code>Choose a theme</code>选择一个主题。过一会之后再回到GitHub Pages，看到如下内容说明设置成功：<br><a href="https://imgchr.com/i/s3wFxg"><img src="https://s3.ax1x.com/2021/01/11/s3wFxg.png" alt="s3wFxg.png"></a><br>此时我们访问图中链接，已经可以正常访问啦，然后记录下我们项目的git ssh地址，后面和本地git打通要用到，git ssh地址如下图：<br><a href="https://imgchr.com/i/s3wErj"><img src="https://s3.ax1x.com/2021/01/11/s3wErj.png" alt="s3wErj.png"></a>  </p>
-<h2 id="github配置本地密钥"><a href="#github配置本地密钥" class="headerlink" title="github配置本地密钥"></a>github配置本地密钥</h2><p>打开我的电脑，右键空白处，选择 <code>Git Bash Here</code>,打开git命令窗口，输入以下命令配置你的github信息：   </p>
-<pre><code>git config --global user.name &quot;xxxxx&quot;
-git config --global user.email &quot;xxxxxx@qq.com&quot;</code></pre>
-<p>用户名邮箱为你注册github的用户名和邮箱，接下来创建本地ssh密钥，输入以下命令：<br><code>ssh-keygen -t rsa -C &quot;xxxxxx@qq.com&quot;</code><br>然后访问本机C:\Users\你的本机用户名  找到.ssh文件夹，会生成如下密钥文件：<br><a href="https://imgchr.com/i/s3wAMQ"><img src="https://s3.ax1x.com/2021/01/11/s3wAMQ.png" alt="s3wAMQ.png"></a><br>复制<code>id_rsa.pub</code>文件中的内容，打开github，<br><a href="https://imgchr.com/i/s3wVqs"><img src="https://s3.ax1x.com/2021/01/11/s3wVqs.png" alt="s3wVqs.png"></a><br><a href="https://imgchr.com/i/s3weZn"><img src="https://s3.ax1x.com/2021/01/11/s3weZn.png" alt="s3weZn.png"></a><br><a href="https://imgchr.com/i/s3wmaq"><img src="https://s3.ax1x.com/2021/01/11/s3wmaq.png" alt="s3wmaq.png"></a><br>密钥设置成功后，在git命令台输入<br><code>ssh -T git@github.com</code><br>出现你的名字，说明设置成功，至此，hexo+github搭建博客的前置环境我们就全部完成啦，后续搭建教程 <a href="/2021/01/06/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">看这里</a></p>
 ]]></content>
       <categories>
         <category>工具</category>
