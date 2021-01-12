@@ -1,6 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>java拼接图片工具类</title>
+    <url>/java%E6%8B%BC%E6%8E%A5%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7%E7%B1%BB.html</url>
+    <content><![CDATA[<p>最近有个拼接图片的需求，遂整理了一个java版本的拼接图片工具类，代码如下：  </p>
+<pre><code>public class ImageMergeUtil &#123;
+/**
+* @param multipartFile 截图文件
+* @return 读取到的缓存图像
+* @throws IOException 不存在该文件时抛出IO异常
+*/
+public static BufferedImage getBufferedImage(MultipartFile multipartFile)
+throws IOException &#123;
+return ImageIO.read(multipartFile.getInputStream());
+&#125;
+
+
+/**
+ * 远程图片转BufferedImage
+ * @param destUrl    远程图片地址
+ * @return
+ */
+public static BufferedImage getBufferedImageDestUrl(String destUrl) &#123;
+    HttpURLConnection conn = null;
+    BufferedImage image = null;
+    try &#123;
+        URL url = new URL(destUrl);
+        conn = (HttpURLConnection) url.openConnection();
+        if (conn.getResponseCode() == 200) &#123;
+            image = ImageIO.read(conn.getInputStream());
+            return image;
+        &#125;
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125; finally &#123;
+        conn.disconnect();
+    &#125;
+    return image;
+&#125;
+
+/**
+ * 输出图片
+ *
+ * @param buffImg
+ *            图像拼接叠加之后的BufferedImage对象
+ * @param savePath
+ *            图像拼接叠加之后的保存路径
+ */
+public static void generateSaveFile(BufferedImage buffImg, String savePath) &#123;
+    int temp = savePath.lastIndexOf(&quot;.&quot;) + 1;
+    try &#123;
+        File outFile = new File(savePath);
+        if(!outFile.exists())&#123;
+            outFile.createNewFile();
+        &#125;
+        ImageIO.write(buffImg, savePath.substring(temp), outFile);
+        System.out.println(&quot;ImageIO write...&quot;);
+    &#125; catch (IOException e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+
+/**
+ *
+ * @Title: 构造图片
+ * @Description: 生成水印并返回java.awt.image.BufferedImage
+ * @param buffImg
+ *            源文件(BufferedImage)
+ * @param waterImg
+ *            水印文件(BufferedImage)
+ * @param x
+ *            距离右下角的X偏移量
+ * @param y
+ *            距离右下角的Y偏移量
+ * @param alpha
+ *            透明度, 选择值从0.0~1.0: 完全透明~完全不透明
+ * @return BufferedImage
+ * @throws IOException
+ */
+public static BufferedImage overlyingImage(BufferedImage buffImg, BufferedImage waterImg, int x, int y, float alpha) throws IOException &#123;
+
+    // 创建Graphics2D对象，用在底图对象上绘图
+    Graphics2D g2d = buffImg.createGraphics();
+    int waterImgWidth = waterImg.getWidth();// 获取层图的宽度
+    int waterImgHeight = waterImg.getHeight();// 获取层图的高度
+    // 在图形和图像中实现混合和透明效果
+    g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
+    // 绘制
+    g2d.drawImage(waterImg, x, y, waterImgWidth, waterImgHeight, null);
+    g2d.dispose();// 释放图形上下文使用的系统资源
+    return buffImg;
+&#125;
+
+/**
+ * 合并任数量的图片成一张图片
+ *
+ * @param isHorizontal
+ *            true代表水平合并，fasle代表垂直合并
+ * @param imgs
+ *            待合并的图片数组
+ * @return
+ * @throws IOException
+ */
+public static BufferedImage mergeImage(boolean isHorizontal, List&lt;MultipartFile&gt; imgs) throws IOException &#123;
+    // 生成新图片
+    BufferedImage destImage = null;
+    // 计算新图片的长和高
+    int allw = 0, allh = 0, allwMax = 0, allhMax = 0;
+    // 获取总长、总宽、最长、最宽
+    for (MultipartFile image : imgs) &#123;
+        BufferedImage img = getBufferedImage(image);
+        allw += img.getWidth();
+        allh += img.getHeight();
+        if (img.getWidth() &gt; allwMax) &#123;
+            allwMax = img.getWidth();
+        &#125;
+        if (img.getHeight() &gt; allhMax) &#123;
+            allhMax = img.getHeight();
+        &#125;
+    &#125;
+    // 创建新图片
+    if (isHorizontal) &#123;
+        destImage = new BufferedImage(allw, allhMax, BufferedImage.TYPE_INT_RGB);
+    &#125; else &#123;
+        destImage = new BufferedImage(allwMax, allh, BufferedImage.TYPE_INT_RGB);
+    &#125;
+    // 合并所有子图片到新图片
+    int wx = 0, wy = 0;
+    for (MultipartFile image : imgs) &#123;
+        BufferedImage img = getBufferedImage(image);
+        int w1 = img.getWidth();
+        int h1 = img.getHeight();
+        // 从图片中读取RGB
+        int[] ImageArrayOne = new int[w1 * h1];
+        ImageArrayOne = img.getRGB(0, 0, w1, h1, ImageArrayOne, 0, w1); // 逐行扫描图像中各个像素的RGB到数组中
+        if (isHorizontal) &#123; // 水平方向合并
+            destImage.setRGB(wx, 0, w1, h1, ImageArrayOne, 0, w1); // 设置上半部分或左半部分的RGB
+        &#125; else &#123; // 垂直方向合并
+            destImage.setRGB(0, wy, w1, h1, ImageArrayOne, 0, w1); // 设置上半部分或左半部分的RGB
+        &#125;
+        wx += w1;
+        wy += h1;
+    &#125;
+    return destImage;
+&#125;
+
+public static InputStream mergeImageStream(boolean isHorizontal, List&lt;MultipartFile&gt; imgs) throws IOException &#123;
+    BufferedImage image = mergeImage(isHorizontal,imgs);
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    ImageIO.write(image,&quot;png&quot;, outputStream);
+    return new ByteArrayInputStream(outputStream.toByteArray());
+&#125;
+&#125;</code></pre>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo搭建-环境准备</title>
     <url>/hexo%E6%90%AD%E5%BB%BA-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87.html</url>
     <content><![CDATA[<h1 id="本机安装node-js-git"><a href="#本机安装node-js-git" class="headerlink" title="本机安装node.js+git"></a>本机安装node.js+git</h1><h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><blockquote>
